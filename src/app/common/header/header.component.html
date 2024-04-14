@@ -1,0 +1,15 @@
+<div class="header-dark">
+    <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+        <div class="container m-2" style="max-width: 100% !important;">
+            <a class="navbar-brand" href="#">Restaurante</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+            
+            </div>
+            <span class="navbar-text" style="margin-right: 2rem;">
+                <a routerLink="" class="login" [ngClass]="{'btn btn-light action-button': activeButton === 'signup'}" (click)="activeButton = 'login'">Log In</a>
+            </span>
+            <a class="btn btn-light action-button" role="button" routerLink="register" [ngClass]="{'btn btn-light action-button': activeButton === 'login'}" (click)="activeButton = 'signup'">Sign Up</a>
+              
+        </div>
+    </nav>
+</div>
