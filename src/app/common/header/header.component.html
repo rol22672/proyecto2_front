@@ -5,11 +5,15 @@
             <div class="collapse navbar-collapse" id="navcol-1">
             
             </div>
-            <span class="navbar-text" style="margin-right: 2rem;">
+            <span class="navbar-text" *ngIf="!token || !user" style="margin-right: 2rem;">
                 <a routerLink="" class="login" [ngClass]="{'btn btn-light action-button': activeButton === 'signup'}" (click)="activeButton = 'login'">Log In</a>
             </span>
-            <a class="btn btn-light action-button" role="button" routerLink="register" [ngClass]="{'btn btn-light action-button': activeButton === 'login'}" (click)="activeButton = 'signup'">Sign Up</a>
+            <a *ngIf="!token || !user" class="btn btn-light action-button" role="button" routerLink="register" [ngClass]="{'btn btn-light action-button': activeButton === 'login'}" (click)="activeButton = 'signup'">Sign Up</a>
               
+
+            <a *ngIf="token  && user"  class="btn btn-light action-button" role="button" routerLink="register" (click)="LogOut()">Log out</a>
+
+
         </div>
     </nav>
 </div>

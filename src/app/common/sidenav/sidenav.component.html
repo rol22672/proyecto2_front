@@ -1,5 +1,5 @@
-<section [class.sidenav]="isExpanded">
-    <mat-list class="nav" *ngFor="let route of routeLinks">
+<section [class.sidenav]="isExpanded" *ngIf="token && user">
+    <mat-list  class="nav" *ngFor="let route of routeLinksLogged">
       <a
         mat-list-item
         routerLinkActive="active-link"
@@ -16,4 +16,25 @@
         <p matLine *ngIf="isExpanded">{{ route.name }}</p>
       </a>
     </mat-list>
+</section>
+
+
+<section [class.sidenav]="isExpanded" *ngIf="!token || !user">
+  <mat-list  class="nav" *ngFor="let route of routeLinks">
+    <a
+      mat-list-item
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="hover"
+      routerLink="{{ route.link }}"
+    >
+      <mat-icon
+        mat-list-icon
+        matTooltipPosition="right"
+      >
+        {{ route.icon }}</mat-icon
+      >
+      <p matLine *ngIf="isExpanded">{{ route.name }}</p>
+    </a>
+  </mat-list>
 </section>

@@ -24,6 +24,15 @@ import { MarkPendingComponent } from './pages/kitchen/mark-pending/mark-pending.
 import { MarkDoneComponent } from './pages/kitchen/mark-done/mark-done.component';
 import { MarkPendingDrinkComponent } from './pages/bar/mark-pending-drink/mark-pending-drink.component';
 import { MarkDoneDrinkComponent } from './pages/bar/mark-done-drink/mark-done-drink.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { Report1Component } from './pages/reports/report1/report1.component';
+import { Report2Component } from './pages/reports/report2/report2.component';
+import { Report4Component } from './pages/reports/report4/report4.component';
+import { Report5Component } from './pages/reports/report5/report5.component';
+import { Report6Component } from './pages/reports/report6/report6.component';
+import { JoinTableComponent } from './pages/tables/join-table/join-table.component';
 
 @NgModule({
   declarations: [
@@ -46,13 +55,23 @@ import { MarkDoneDrinkComponent } from './pages/bar/mark-done-drink/mark-done-dr
     MarkPendingComponent,
     MarkDoneComponent,
     MarkPendingDrinkComponent,
-    MarkDoneDrinkComponent
+    MarkDoneDrinkComponent,
+    Report1Component,
+    Report2Component,
+    Report4Component,
+    Report5Component,
+    Report6Component,
+    JoinTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule, 
+    HttpClientModule,
+    SimpleNotificationsModule.forRoot({position:['bottom', 'center']})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,25 @@
-<p>create-drink works!</p>
+<h2 mat-dialog-title>Agregar Orden de bebida</h2>
+<div mat-dialog-content>
+    <form id="stripe-login"   class="pr-5 pl-5 pb-5">
+                                        
+        <mat-form-field appearance="fill" class="col-lg-12 pb-3">
+            <mat-label>Bebida:</mat-label>
+            <mat-select name="platoid" id="platoid" #platoid="ngModel" [(ngModel)]="orderDrink.bebidaid">
+              <mat-option *ngFor="let drink of drinks" [value]="drink.bebidaid">
+                {{drink.nombre}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="col-lg-12 pb-3 pt-3">
+            <mat-label>Cantidad:</mat-label>
+            <input  name="cantidad" id="cantidad" #cantidad="ngModel" [(ngModel)]="orderDrink.cantidad"  style="font-size:1rem !important"  required type="number" matInput>
+            <mat-icon matSuffix>price_check</mat-icon>
+        </mat-form-field>
+
+  </form>
+</div>
+<div mat-actions>
+    <button mat-button  (click)="save()" tabindex="1">Guardar</button>
+    <button mat-button  (click)="onNoClick()"  tabindex="-1">Cancelar</button>
+</div>

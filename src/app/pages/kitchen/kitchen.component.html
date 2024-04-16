@@ -5,90 +5,27 @@
 <!-- platos -->
 <div class="w-100 h-100 row" >
     
-    <div class="col-md-4 p-2">
+    <div class="col-md-4 p-2" *ngFor="let dish of dishes; let i=index">
         <mat-card class="w-100">
-            <mat-card-title>Plato #1</mat-card-title>
-            <mat-card-subtitle>Orden #1  Mesa #1</mat-card-subtitle>
+            <mat-card-title>Plato #{{i+1}}</mat-card-title>
+            <mat-card-subtitle>Orden #{{dish.cuentaid}}  Mesa #{{dish.mesaid}}</mat-card-subtitle>
             <mat-card-content>
-                <p class="fw-bold">Nombre Plato</p>
-                <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit similique id accusantium, animi iusto veniam delectus</p>
-                <p class="fw-bold">Observaciones del plato:</p>
-                <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit similique id accusantium, animi iusto veniam delectus</p>
-                <p class="text-danger">Estado: Pendiente</p>
+                <p class="fw-bold">{{dish.nombre}}</p>
+                <p >{{dish.descripcion}}</p>
+                <p class="text-danger" *ngIf="!dish.status">Estado: Pendiente</p>
+                <p class="text-success" *ngIf="dish.status">Estado: Hecho</p>
             </mat-card-content>
             <mat-card-actions>
-                <button (click)="markPending('1')" mat-icon-button color="primary" aria-label="En curso">
+                <button *ngIf="dish.status" (click)="markPending(dish)" mat-icon-button color="primary" aria-label="En curso">
                     <mat-icon>pending</mat-icon>
                 </button>
-                <button (click)="markDone('1')" mat-icon-button color="primary" aria-label="Hecho">
+                <button *ngIf="!dish.status" (click)="markDone(dish)" mat-icon-button color="primary" aria-label="Hecho">
                     <mat-icon>done</mat-icon>
                 </button>
             </mat-card-actions>
         </mat-card>
     </div>
-    <div class="col-md-4 p-2">
-        <mat-card class="w-100">
-            <mat-card-title>Plato #1</mat-card-title>
-            <mat-card-subtitle>Orden #1  Mesa #1</mat-card-subtitle>
-            <mat-card-content>
-                <p class="fw-bold">Nombre Plato</p>
-                <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit similique id accusantium, animi iusto veniam delectus</p>
-                <p class="fw-bold">Observaciones del plato:</p>
-                <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit similique id accusantium, animi iusto veniam delectus</p>
-                <p class="text-danger">Estado: Pendiente</p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-icon-button color="primary" aria-label="En curso">
-                    <mat-icon>pending</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Hecho">
-                    <mat-icon>done</mat-icon>
-                </button>
-            </mat-card-actions>
-        </mat-card>
-    </div>
-    <div class="col-md-4 p-2">
-        <mat-card class="w-100">
-            <mat-card-title>Plato #1</mat-card-title>
-            <mat-card-subtitle>Orden #1  Mesa #1</mat-card-subtitle>
-            <mat-card-content>
-                <p class="fw-bold">Nombre Plato</p>
-                <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit similique id accusantium, animi iusto veniam delectus</p>
-                <p class="fw-bold">Observaciones del plato:</p>
-                <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit similique id accusantium, animi iusto veniam delectus</p>
-                <p class="text-danger">Estado: Pendiente</p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-icon-button color="primary" aria-label="En curso">
-                    <mat-icon>pending</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Hecho">
-                    <mat-icon>done</mat-icon>
-                </button>
-            </mat-card-actions>
-        </mat-card>
-    </div>
-    <div class="col-md-4 p-2">
-        <mat-card class="w-100">
-            <mat-card-title>Plato #1</mat-card-title>
-            <mat-card-subtitle>Orden #1  Mesa #1</mat-card-subtitle>
-            <mat-card-content>
-                <p class="fw-bold">Nombre Plato</p>
-                <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit similique id accusantium, animi iusto veniam delectus</p>
-                <p class="fw-bold">Observaciones del plato:</p>
-                <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit similique id accusantium, animi iusto veniam delectus</p>
-                <p class="text-danger">Estado: Pendiente</p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-icon-button color="primary" aria-label="En curso">
-                    <mat-icon>pending</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Hecho">
-                    <mat-icon>done</mat-icon>
-                </button>
-            </mat-card-actions>
-        </mat-card>
-    </div>
+    
     
     
 </div>

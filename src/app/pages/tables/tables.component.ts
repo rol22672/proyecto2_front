@@ -7,6 +7,10 @@ import { CreateDishComponent } from './create-dish/create-dish.component';
 import { CreateDrinkComponent } from './create-drink/create-drink.component';
 import { AssignWaiterComponent } from './assign-waiter/assign-waiter.component';
 import { CreateTableComponent } from './create-table/create-table.component';
+import { RestTableService } from '../../services/restTable/rest-table.service';
+import { NotificationType, NotificationsService } from 'angular2-notifications';
+import { OPTIONS } from '../../models/ConfigNotification';
+import { JoinTableComponent } from './join-table/join-table.component';
 
 @Component({
   selector: 'app-tables',
@@ -15,9 +19,24 @@ import { CreateTableComponent } from './create-table/create-table.component';
 })
 export class TablesComponent implements OnInit {
 
-  constructor(private dialog:MatDialog) { }
+  public tables:[];
+  constructor(private dialog:MatDialog, private restTable:RestTableService, private notification:NotificationsService ) { 
+    this.get();
+  }
 
   ngOnInit(): void {
+  }
+
+
+  get(){
+    this.restTable.get().subscribe((res:any)=>{
+      if(res.table){
+        this.tables = res.table;
+        console.log(this.tables);
+      }
+    }, error =>{
+      this.restTable.handleErrors(error);
+    })
   }
 
 
@@ -26,7 +45,7 @@ export class TablesComponent implements OnInit {
       data: null    });
 
    dialogRef1.afterClosed().subscribe(result => {
-      
+      this.get();
     });
   }
 
@@ -34,18 +53,18 @@ export class TablesComponent implements OnInit {
     const dialogRef1  = this.dialog.open(OpenOrderComponent,{
       data: table    });
 
-   dialogRef1.afterClosed().subscribe(result => {
-      
+    dialogRef1.afterClosed().subscribe(result => {
+      this.get();
     });
   }
 
 
   viewOrder(table:any){
     const dialogRef1  = this.dialog.open(ViewOrderComponent,{
-      data: table    });
+      data: table , width:'100%'   });
 
-   dialogRef1.afterClosed().subscribe(result => {
-      
+    dialogRef1.afterClosed().subscribe(result => {
+        this.get();
     });
   }
 
@@ -54,8 +73,8 @@ export class TablesComponent implements OnInit {
     const dialogRef1  = this.dialog.open(CloseOrderComponent,{
       data: table    });
 
-   dialogRef1.afterClosed().subscribe(result => {
-      
+    dialogRef1.afterClosed().subscribe(result => {
+        this.get();
     });
   }
 
@@ -64,8 +83,8 @@ export class TablesComponent implements OnInit {
     const dialogRef1  = this.dialog.open(CreateDishComponent,{
       data: table    });
 
-   dialogRef1.afterClosed().subscribe(result => {
-      
+    dialogRef1.afterClosed().subscribe(result => {
+      this.get();
     });
   }
 
@@ -73,8 +92,8 @@ export class TablesComponent implements OnInit {
     const dialogRef1  = this.dialog.open(CreateDrinkComponent,{
       data: table    });
 
-   dialogRef1.afterClosed().subscribe(result => {
-      
+    dialogRef1.afterClosed().subscribe(result => {
+      this.get();
     });
   }
 
@@ -82,8 +101,18 @@ export class TablesComponent implements OnInit {
     const dialogRef1  = this.dialog.open(AssignWaiterComponent,{
       data: table    });
 
-   dialogRef1.afterClosed().subscribe(result => {
-      
+    dialogRef1.afterClosed().subscribe(result => {
+      this.get();  
+    });
+  }
+
+
+  joinTable(table:any){
+    const dialogRef1  = this.dialog.open(JoinTableComponent,{
+      data: table    });
+
+    dialogRef1.afterClosed().subscribe(result => {
+      this.get();  
     });
   }
 

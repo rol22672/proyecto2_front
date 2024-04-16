@@ -1,1 +1,31 @@
-<p>view-order works!</p>
+<h2 mat-dialog-title>Orden de mesa #{{data.mesaid}}</h2>
+<div mat-dialog-content class="col-md-12">
+    <h3 class="fw-bold">PLATOS:</h3>
+    <div class="w-100" *ngFor="let dish of dishes; let i = index">
+        <span class="fw-bold">plato #{{i+1}}</span><br>
+        <span class="fw-bold">Nombre: </span><span>{{dish.nombre}}</span><br>
+        <span class="fw-bold">Precio: </span><span>{{dish.precio}}</span><br>
+        <span class="fw-bold">Descripción: </span><span>{{dish.descripcion}}</span><br>
+        <span class="fw-bold">cantidad: </span><span>{{dish.cantidad}}</span>
+        <mat-divider></mat-divider>
+    </div>
+
+
+    <h3 class="fw-bold">BEBIDAS:</h3>
+    <div class="w-100" *ngFor="let drink of drinks; let i = index">
+        <span class="fw-bold">Bebida #{{i+1}}</span><br>
+        <span class="fw-bold">Nombre: </span><span>{{drink.nombre}}</span><br>
+        <span class="fw-bold">Precio: </span><span>{{drink.precio}}</span><br>
+        <span class="fw-bold">Descripción: </span><span>{{drink.descripcion}}</span><br>
+        <span class="fw-bold">cantidad: </span><span>{{drink.cantidad}}</span>
+        <mat-divider></mat-divider>
+    </div>
+    
+    <div class="w-100">
+        <h3 class="fw-bold">TOTAL: {{account.total}}</h3>
+    </div>
+    
+</div>
+<div mat-actions>
+    <button mat-button  (click)="onNoClick()"  tabindex="-1">Cerrar</button>
+</div>

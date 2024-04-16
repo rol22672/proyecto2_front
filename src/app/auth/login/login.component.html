@@ -11,17 +11,17 @@
   
               <mat-form-field  class="col-md-12" appearance="fill">
                 <mat-label>Email address</mat-label>
-                <input matInput placeholder="Email address" type="email" name="email">
+                <input matInput placeholder="Email address" type="email" name="email"  [(ngModel)]="user.email">
               </mat-form-field>
 
 
               <mat-form-field  class="col-md-12" appearance="fill">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="password" type="password" name="password">
+                <input matInput placeholder="password" type="password" name="password" [(ngModel)]="user.password">
               </mat-form-field>
   
               <div class="pt-1 mb-4">
-                <button mat-raised-button color="primary">Login</button>
+                <button mat-raised-button color="primary" (click)="login()">Login</button>
               </div>
               <p>Don't have an account? <a routerLink="register" class="link-info">Register here</a></p>
             </form>

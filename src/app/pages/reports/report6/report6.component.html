@@ -1,0 +1,23 @@
+
+<div class="table-responsive">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Año</th>
+            <th>Mes</th>
+            <th>Promedio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dish of dishes; let i=index">
+          <td> {{i+1}}</td>
+          <td class="align-top">{{dish.nombre}}</td>
+          <td>{{dish.anio}}</td>
+          <td>{{dish.mes}}</td>
+          <td>{{dish.promedio_calificacion}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

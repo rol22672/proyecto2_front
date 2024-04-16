@@ -9,37 +9,37 @@
                 
                 <mat-form-field  class="col-md-6" appearance="fill">
                     <mat-label>Name</mat-label>
-                    <input matInput placeholder="name" type="text" name="name">
+                    <input matInput placeholder="name" type="text" name="name" [(ngModel)]="newUser.nombre">
                 </mat-form-field>
 
                 <mat-form-field  class="col-md-6" appearance="fill">
                     <mat-label>lastname</mat-label>
-                    <input matInput placeholder="lastname" type="text" name="lastname">
+                    <input matInput placeholder="lastname" type="text" name="lastname" [(ngModel)]="newUser.apellido">
                 </mat-form-field>
 
 
                 <mat-form-field  class="col-md-12" appearance="fill">
                     <mat-label>phone</mat-label>
-                    <input matInput placeholder="phone" type="number" name="phone">
+                    <input matInput placeholder="phone" type="tel" name="phone" [(ngModel)]="newUser.telefono">
                 </mat-form-field>
 
                 <mat-form-field  class="col-md-12" appearance="fill">
                     <mat-label>Email address</mat-label>
-                    <input matInput placeholder="Email address" type="email" name="email">
+                    <input matInput placeholder="Email address" type="email" name="email" [(ngModel)]="newUser.email">
                 </mat-form-field>
 
                 <mat-form-field  class="col-md-12" appearance="fill">
                     <mat-label>Password</mat-label>
-                    <input matInput placeholder="password" type="password" name="password">
+                    <input matInput placeholder="password" type="password" name="password" [(ngModel)]="newUser.password">
                 </mat-form-field>
 
                 <mat-form-field  class="col-md-12" appearance="fill">
                     <mat-label>Confirmation password</mat-label>
-                    <input matInput placeholder="password" type="password" name="confirmation_password">
+                    <input matInput placeholder="password" type="password" name="confirmation_password" [(ngModel)]="newUser.password_confirmation">
                 </mat-form-field>
   
               <div class="pt-1 mb-4">
-                <button mat-raised-button color="primary">Register</button>
+                <button mat-raised-button color="primary" (click)="register()">Register</button>
               </div>
               <p>Do you have an account? <a routerLink="" class="link-info">Login here</a></p>
             </form>

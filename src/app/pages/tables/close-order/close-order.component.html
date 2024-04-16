@@ -1,1 +1,12 @@
-<p>close-order works!</p>
+<h2 mat-dialog-title>Abrir Cuenta</h2>
+<div mat-dialog-content>
+    <form id="stripe-login"   class="pr-5 pl-5 pb-5">
+                                        
+        <span class="text-danger">deseas cerrar la cuenta para la mesa #{{data.mesaid}}</span>
+        
+  </form>
+</div>
+<div mat-actions>
+    <button mat-button  (click)="close()" tabindex="1">Si</button>
+    <button mat-button  (click)="onNoClick()"  tabindex="-1">No</button>
+</div>

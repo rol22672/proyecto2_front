@@ -1,1 +1,33 @@
-<p>create-table works!</p>
+<h2 mat-dialog-title>Agregar Mesa</h2>
+<div mat-dialog-content>
+    <form id="stripe-login"   class="pr-5 pl-5 pb-5">
+                                        
+        <mat-form-field appearance="fill" class="col-lg-12 pb-3">
+            <mat-label>Area de mesa</mat-label>
+            <mat-select name="areaid" id="areaid" #areaid="ngModel" [(ngModel)]="table.areaid">
+              <mat-option *ngFor="let area of areas" [value]="area.areaid">
+                {{area.nombre}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="col-lg-12 pb-3 pt-3">
+            <mat-label>Capacidad:</mat-label>
+            <input  name="capacidad" id="capacidad" #capacidad="ngModel" [(ngModel)]="table.capacidad"  style="font-size:1rem !important"  required type="number" matInput>
+            <mat-icon matSuffix>price_check</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-lg-12 pb-3">
+            <mat-label>Puede Moverse</mat-label>
+            <mat-select name="puedemoverse" id="puedemoverse" #puedemoverse="ngModel" [(ngModel)]="table.puedemoverse">
+              <mat-option [value]="true">Si</mat-option>
+              <mat-option [value]="false">No</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+  </form>
+</div>
+<div mat-actions>
+    <button mat-button  (click)="save()" tabindex="1">Guardar</button>
+    <button mat-button  (click)="onNoClick()"  tabindex="-1">Cancelar</button>
+</div>
